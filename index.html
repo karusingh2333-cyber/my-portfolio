@@ -1,232 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Karan Singh — Video Editing Portfolio</title>
-  <meta name="description" content="Video editing & motion portfolio — Karan Singh" />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Video Portfolio</title>
   <style>
-    /* Simple, clean CSS — change colors below if needed */
-    :root{
-      --bg:#0f1720;
-      --card:#0b1220;
-      --muted:#9aa4b2;
-      --accent:#06b6d4;
-      --text:#e6eef6;
-      --glass: rgba(255,255,255,0.03);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,var(--bg),#061018 120%); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-    .container{max-width:1100px;margin:28px auto;padding:20px;}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#031014;font-size:20px}
-    h1{margin:0;font-size:20px}
-    p.lead{margin:4px 0 0;color:var(--muted);font-size:14px}
+    body { margin:0; font-family: Arial, sans-serif; background:#f8f8f8; }
+    header { background:#111; color:#fff; padding:20px; text-align:center; }
+    h1 { margin:0; font-size:28px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; padding:20px; }
+    .proj { background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.2); cursor:pointer; }
+    .proj img.thumb { width:100%; height:180px; object-fit:cover; display:block; }
+    .proj .meta { padding:10px; }
+    .proj .meta h3 { margin:0 0 8px; font-size:18px; }
+    .proj .meta p { margin:0; font-size:14px; color:#555; }
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:22px;align-items:center}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow: 0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-    .cta{display:flex;gap:10px;margin-top:14px;align-items:center}
-    .btn{background:var(--accent);color:#021018;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
-    .btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.04)}
-
-    /* Grid */
-    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
-    .proj{background:var(--glass);border-radius:10px;padding:0;overflow:hidden;cursor:pointer;transition:transform .18s ease}
-    .proj:hover{transform:translateY(-6px)}
-    .thumb{width:100%;height:140px;object-fit:cover;display:block}
-    .proj .meta{padding:12px}
-    .proj h3{margin:0;font-size:15px}
-    .proj p{margin:6px 0 0;color:var(--muted);font-size:13px}
-
-    /* Modal */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(0deg,rgba(3,6,12,0.65), rgba(3,6,12,0.65));z-index:2000;padding:20px}
-    .modal.open{display:flex}
-    .modal .inner{width:100%;max-width:900px;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 12px 40px rgba(2,6,23,0.9)}
-    .modal .header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(0,0,0,0.4);color:var(--text)}
-    .close{background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer}
-    iframe{width:100%;height:520px;border:0;display:block}
-
-    /* About & Contact */
-    .about{display:flex;gap:18px;align-items:center}
-    .avatar{width:120px;height:120px;border-radius:10px;background:linear-gradient(135deg,#1f2937,#111827);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted);font-size:26px}
-    .contact a{color:var(--accent);text-decoration:none;font-weight:600}
-
-    /* Footer */
-    footer{margin-top:30px;color:var(--muted);font-size:13px;text-align:center;padding:14px}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .projects{grid-template-columns:repeat(2,1fr)}
-      iframe{height:360px}
-    }
-    @media (max-width:560px){
-      .projects{grid-template-columns:1fr}
-      .thumb{height:200px}
-      .avatar{width:92px;height:92px;font-size:20px}
-      iframe{height:260px}
-    }
+    /* modal */
+    #modal { position:fixed; inset:0; background:rgba(0,0,0,0.8); display:none; align-items:center; justify-content:center; z-index:1000; }
+    #modal.open { display:flex; }
+    #modalContent { background:#000; padding:10px; border-radius:10px; max-width:90%; width:800px; position:relative; }
+    #modalTitle { color:#fff; margin:0 0 10px; }
+    #closeBtn { position:absolute; top:10px; right:10px; background:#f00; color:#fff; border:none; padding:5px 10px; cursor:pointer; border-radius:5px; }
+    iframe, video { display:block; width:100%; height:450px; border:0; }
+    footer { text-align:center; padding:20px; background:#111; color:#fff; font-size:14px; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">KS</div>
-        <div>
-          <h1>Karan Singh</h1>
-          <p class="lead">Video Editor • Motion Designer — Short films, ads, UGC</p>
-        </div>
-      </div>
-      <nav>
-        <a class="btn" href="#projects">View Work</a>
-      </nav>
-    </header>
+  <header>
+    <h1>My Video Portfolio</h1>
+    <p>Video Editor • Motion Graphics • Storyteller</p>
+  </header>
 
-    <section class="hero">
-      <div class="card">
-        <h2 style="margin:0 0 6px">Hi — main Karan</h2>
-        <p class="lead">Main short-form videos, ads aur client projects edit karta hoon. Neeche mere select projects dekhiye — har project par click karke video dekhiye.</p>
-
-        <div class="cta">
-          <a class="btn" href="#projects">See Projects</a>
-          <a class="btn secondary" href="mailto:your-email@example.com">Contact</a>
-        </div>
-
-        <div style="margin-top:16px;">
-          <strong style="font-size:13px;color:var(--muted)">Tip:</strong>
-          <span style="font-size:13px;color:var(--muted)">Video lazy-load hota hai — click karke modal me play karein.</span>
+  <main>
+    <div class="grid">
+      <!-- Project 1 (Vimeo embed) -->
+      <div class="proj" data-video="https://player.vimeo.com/video/1117083402?h=912cef0b78">
+        <img class="thumb" src="https://i.vimeocdn.com/video/1117083402_640x360.jpg" alt="Project 1">
+        <div class="meta">
+          <h3>Client Ad — Product X</h3>
+          <p>Role: Editor • Tools: Premiere Pro, After Effects</p>
         </div>
       </div>
 
-      <aside class="card" style="text-align:center">
-        <div style="font-size:14px;color:var(--muted)">Featured Reel</div>
-        <!-- Replace thumbnail and VIDEO_ID below -->
-        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="reel" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-top:10px">
-        <div style="margin-top:12px">
-          <a class="btn" href="#" id="openFeatured" data-video="VIDEO_ID">Play Reel</a>
-        </div>
-      </aside>
-    </section>
-
-    <section id="projects" style="margin-top:18px">
-      <h3 style="margin:0 0 12px">Projects</h3>
-      <div class="projects">
-        <!-- Project 1 -->
-        <div class="proj" data-video="VIDEO_ID_1">
-          <img class="thumb" src="https://img.youtube.com/vi/VIDEO_ID_1/hqdefault.jpg" alt="Project 1">
-          <div class="meta">
-            <h3>Client Ad — Product X</h3>
-            <p>Role: Editor • Tools: Premiere Pro, After Effects</p>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="proj" data-video="VIDEO_ID_2">
-          <img class="thumb" src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="Project 2">
-          <div class="meta">
-            <h3>UGC Short — Travel</h3>
-            <p>Role: Editor, Color Grade</p>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="proj" data-video="VIDEO_ID_3">
-          <img class="thumb" src="https://img.youtube.com/vi/VIDEO_ID_3/hqdefault.jpg" alt="Project 3">
-          <div class="meta">
-            <h3>Music Video — Artist Y</h3>
-            <p>Role: Editor • Effects: Motion Graphics</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section style="margin-top:22px" class="card about">
-      <div class="avatar">KS</div>
-      <div>
-        <h3 style="margin:0">About me</h3>
-        <p style="color:var(--muted);margin-top:6px">I'm Karan — I make fast-paced edits, ads and social content. I focus on clean cuts, strong pacing, and color grade that sells.</p>
-        <div style="margin-top:10px" class="contact">
-          <div style="color:var(--muted);font-size:13px">Email — <a href="mailto:your-email@example.com">your-email@example.com</a></div>
-          <div style="color:var(--muted);font-size:13px;margin-top:6px">Social — <a class="contact" href="https://instagram.com/yourprofile" target="_blank">Instagram</a> · <a class="contact" href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></div>
+      <!-- Example Project 2 (YouTube) -->
+      <div class="proj" data-video="dQw4w9WgXcQ">
+        <img class="thumb" src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Project 2">
+        <div class="meta">
+          <h3>Music Video — Sample</h3>
+          <p>Role: Video Editor</p>
         </div>
       </div>
-    </section>
-
-    <footer>
-      <div style="color:var(--muted)">Made with ❤️ • <span id="year"></span> • <a style="color:var(--accent)" href="https://github.com/karusingh2333-cyber">GitHub</a></div>
-    </footer>
-  </div>
+    </div>
+  </main>
 
   <!-- Modal -->
-  <div id="modal" class="modal" role="dialog" aria-hidden="true">
-    <div class="inner">
-      <div class="header">
-        <div id="modalTitle">Project Video</div>
-        <button class="close" id="closeBtn" aria-label="Close">✕</button>
-      </div>
-      <div id="playerWrap">
-        <!-- iframe will be injected here -->
-      </div>
+  <div id="modal" aria-hidden="true">
+    <div id="modalContent">
+      <button id="closeBtn">Close ✖</button>
+      <h2 id="modalTitle"></h2>
+      <div id="playerWrap"></div>
     </div>
   </div>
 
+  <footer>
+    &copy; <span id="year"></span> My Portfolio
+  </footer>
+
+  <!-- JavaScript -->
   <script>
-    // small JS: open modal with YouTube embed (lazy load)
+    // Year update
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function openModal(videoId, title){
+    // open modal with video (Vimeo or YouTube)
+    function openModal(videoRef, title){
       const modal = document.getElementById('modal');
       const wrap = document.getElementById('playerWrap');
       document.getElementById('modalTitle').textContent = title || 'Project Video';
-      wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+      let src = '';
+      if (/^https?:\/\//i.test(videoRef)) {
+        // full URL (like Vimeo embed)
+        src = videoRef + (videoRef.includes('?') ? '&' : '?') + 'autoplay=1&muted=1';
+      } else {
+        // assume YouTube ID
+        src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoRef) + '?autoplay=1&muted=1&rel=0';
+      }
+
+      wrap.innerHTML = '<iframe src="' + src + '" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>';
       modal.classList.add('open');
       modal.setAttribute('aria-hidden','false');
     }
+
     function closeModal(){
       const modal = document.getElementById('modal');
       const wrap = document.getElementById('playerWrap');
-      wrap.innerHTML = '';
+      wrap.innerHTML = ''; // stop video
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden','true');
     }
 
-    // project click handlers
+    // project click events
     document.querySelectorAll('.proj').forEach(el=>{
       el.addEventListener('click', ()=>{
         const vid = el.dataset.video;
-        const title = el.querySelector('h3').innerText;
-        if(!vid || vid.includes('VIDEO_ID')) {
-          alert('Please replace VIDEO_ID_x in index.html with your YouTube video IDs.');
+        const title = el.querySelector('h3') ? el.querySelector('h3').innerText : 'Project Video';
+        if(!vid || vid.trim()===''){
+          alert('Video URL/ID missing for this project.');
           return;
         }
-        openModal(vid,title);
+        openModal(vid, title);
       });
     });
 
-    // featured reel button
-    document.getElementById('openFeatured').addEventListener('click', function(e){
-      e.preventDefault();
-      const vid = this.dataset.video;
-      if(!vid || vid.includes('VIDEO_ID')) {
-        alert('Replace VIDEO_ID in the featured section with your reel video ID.');
-        return;
-      }
-      openModal(vid,'Featured Reel');
-    });
-
-    // modal close
+    // modal close events
     document.getElementById('closeBtn').addEventListener('click', closeModal);
     document.getElementById('modal').addEventListener('click', function(e){
       if(e.target === this) closeModal();
     });
-
-    // keyboard esc
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape') closeModal();
     });
