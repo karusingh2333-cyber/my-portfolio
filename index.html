@@ -1,197 +1,402 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Karan Singh — Video Editing Portfolio</title>
+  <meta name="description" content="Video editing & motion portfolio — Karan Singh" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <style>
-    /* Global reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --bg:#0f1720;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#06b6d4;
+      --text:#e6eef6;
+      --glass: rgba(255,255,255,0.03);
     }
-    body {
-      background: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      line-height: 1.5;
-    }
-    header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    /* Interactive Emoji */
-    .interactive-emoji {
-      display:inline-flex; 
-      align-items:center; 
-      justify-content:center; 
-      margin-left:10px; 
-      cursor:pointer; 
-      user-select:none;
-    }
-    .interactive-emoji svg { 
-      display:block; 
-      transition: transform .18s ease; 
-      width:72px; 
-      height:72px; 
-    }
-    .interactive-emoji.idle svg { 
-      animation: floatY 4s ease-in-out infinite; 
-      transform-origin: center; 
-    }
-    @keyframes floatY { 
-      0%{transform:translateY(0);} 
-      50%{transform:translateY(-3px);} 
-      100%{transform:translateY(0);} 
-    }
-    .brow { 
-      transform-origin: center; 
-      transition: transform .18s cubic-bezier(.2,.9,.2,1); 
-    }
-    .interactive-emoji.active .left-brow { 
-      transform: translateY(-8px) rotate(-6deg) scaleX(1.05); 
-    }
-    .interactive-emoji.active .right-brow { 
-      transform: translateY(-10px) rotate(6deg) scaleX(1.05); 
-    }
-    .pupil { 
-      transition: transform .06s linear; 
-      transform-origin: center; 
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,var(--bg),#061018 120%); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    .container{max-width:1100px;margin:28px auto;padding:20px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#031014;font-size:20px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:14px}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:22px;align-items:center}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow: 0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .cta{display:flex;gap:10px;margin-top:14px;align-items:center}
+    .btn{background:var(--accent);color:#021018;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.04)}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    .proj{background:var(--glass);border-radius:10px;padding:0;overflow:hidden;cursor:pointer;transition:transform .18s ease}
+    .proj:hover{transform:translateY(-6px)}
+    .thumb{width:100%;height:140px;object-fit:cover;display:block}
+    .proj .meta{padding:12px}
+    .proj h3{margin:0;font-size:15px}
+    .proj p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(0deg,rgba(3,6,12,0.65), rgba(3,6,12,0.65));z-index:2000;padding:20px}
+    .modal.open{display:flex}
+    .modal .inner{width:100%;max-width:900px;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 12px 40px rgba(2,6,23,0.9)}
+    .modal .header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(0,0,0,0.4);color:var(--text)}
+    .close{background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer}
+    iframe{width:100%;height:520px;border:0;display:block}
+    .about{display:flex;gap:18px;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:10px;background:linear-gradient(135deg,#1f2937,#111827);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted);font-size:26px}
+    .contact a{color:var(--accent);text-decoration:none;font-weight:600}
+    footer{margin-top:30px;color:var(--muted);font-size:13px;text-align:center;padding:14px}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,1fr)}
+      iframe{height:360px}
     }
     @media (max-width:560px){
-      .interactive-emoji svg { width:56px; height:56px; }
-    }
-
-    /* Main content */
-    main {
-      max-width: 900px;
-      margin: 50px auto;
-      text-align: center;
-    }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 18px;
-      color: #bbb;
+      .projects{grid-template-columns:1fr}
+      .thumb{height:200px}
+      .avatar{width:92px;height:92px;font-size:20px}
+      iframe{height:260px}
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="brand">
-      <div class="logo">W.CREATORS</div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">KS</div>
+        <!-- INSERT after your .logo element inside header .brand -->
+<div class="interactive-emoji" id="interactiveEmoji" title="Hi 👋">
+  <!-- SVG face: simple, stylable eyebrows/eyes -->
+  <svg viewBox="0 0 120 120" width="72" height="72" aria-hidden="true">
+    <defs>
+      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="0.6" result="b"/>
+        <feBlend in="SourceGraphic" in2="b"/>
+      </filter>
+    </defs>
 
-      <!-- Interactive Emoji -->
-      <div class="interactive-emoji" id="interactiveEmoji" title="Hi 👋">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="44" fill="#FFD54A" stroke="#e6b93a" stroke-width="1" />
-          <g class="eye left-eye" transform="translate(-2,0)">
-            <circle class="eye-white" cx="44" cy="58" r="7" fill="#fff"/>
-            <circle class="pupil" cx="44" cy="58" r="3.5" fill="#222"/>
-          </g>
-          <g class="eye right-eye" transform="translate(2,0)">
-            <circle class="eye-white" cx="76" cy="58" r="7" fill="#fff"/>
-            <circle class="pupil" cx="76" cy="58" r="3.5" fill="#222"/>
-          </g>
-          <path class="mouth" d="M46 78 q14 10 28 0" stroke="#3b2b18" stroke-width="3" fill="transparent" stroke-linecap="round"/>
-          <g class="brows">
-            <rect class="brow left-brow" x="34" y="44" rx="3" ry="3" width="20" height="5" fill="#3b2b18"/>
-            <rect class="brow right-brow" x="66" y="44" rx="3" ry="3" width="20" height="5" fill="#3b2b18"/>
-          </g>
-        </svg>
+    <!-- face circle -->
+    <circle cx="60" cy="60" r="44" fill="#FFD54A" stroke="#e6b93a" stroke-width="1" />
+
+    <!-- left eye group -->
+    <g class="eye left-eye" transform="translate(-2,0)">
+      <circle class="eye-white" cx="44" cy="58" r="7" fill="#fff"/>
+      <circle class="pupil" cx="44" cy="58" r="3.5" fill="#222"/>
+    </g>
+
+    <!-- right eye group -->
+    <g class="eye right-eye" transform="translate(2,0)">
+      <circle class="eye-white" cx="76" cy="58" r="7" fill="#fff"/>
+      <circle class="pupil" cx="76" cy="58" r="3.5" fill="#222"/>
+    </g>
+
+    <!-- mouth -->
+    <path class="mouth" d="M46 78 q14 10 28 0" stroke="#3b2b18" stroke-width="3" fill="transparent" stroke-linecap="round"/>
+
+    <!-- eyebrows -->
+    <g class="brows">
+      <rect class="brow left-brow" x="34" y="44" rx="3" ry="3" width="20" height="5" fill="#3b2b18"/>
+      <rect class="brow right-brow" x="66" y="44" rx="3" ry="3" width="20" height="5" fill="#3b2b18"/>
+    </g>
+  </svg>
+</div>
+
+<style>
+/* styles for placement — adjust spacing if needed */
+.interactive-emoji { display:inline-flex; align-items:center; justify-content:center; margin-left:10px; cursor:pointer; user-select:none; }
+.interactive-emoji svg { display:block; filter:url(#soft); transition: transform .18s ease; }
+
+/* subtle bobbing to look alive */
+.interactive-emoji.idle svg { animation: floatY 4s ease-in-out infinite; transform-origin: center; }
+@keyframes floatY { 0%{transform:translateY(0);} 50%{transform:translateY(-3px);} 100%{transform:translateY(0);} }
+
+/* eyebrow default -> raised when .active */
+.brow { transform-origin: center; transition: transform .18s cubic-bezier(.2,.9,.2,1); }
+.interactive-emoji.active .left-brow { transform: translateY(-8px) rotate(-6deg) scaleX(1.05); }
+.interactive-emoji.active .right-brow { transform: translateY(-10px) rotate(6deg) scaleX(1.05); }
+
+/* quick wink (close one eye) */
+.interactive-emoji.wink .left-eye .eye-white,
+.interactive-emoji.wink .right-eye .eye-white { transition: r .12s linear; }
+
+/* mouth expression change on click (smile -> open) */
+.mouth { transition: d .12s ease; }
+
+/* when 'surprised' toggle */
+.interactive-emoji.surprised .mouth { d: path("M46 78 q14 20 28 0"); } /* not all browsers support dynamic d via css; we instead toggle via js below */
+
+/* pupils movement (we'll set transforms on the .pupil elements via JS) */
+.pupil { transition: transform .06s linear; transform-origin: center; }
+
+/* responsive: a bit smaller on small screens */
+@media (max-width:560px){
+  .interactive-emoji svg { width:56px; height:56px; }
+}
+</style>
+
+<script>
+// JS to control eye tracking, idle animations, hover/click behaviour
+(function(){
+  const container = document.getElementById('interactiveEmoji');
+  const svg = container.querySelector('svg');
+  const leftPupil = container.querySelector('.left-eye .pupil');
+  const rightPupil = container.querySelector('.right-eye .pupil');
+  const leftEye = container.querySelector('.left-eye');
+  const rightEye = container.querySelector('.right-eye');
+  const leftBrow = container.querySelector('.left-brow');
+  const rightBrow = container.querySelector('.right-brow');
+  const mouth = container.querySelector('.mouth');
+
+  // enable idle bob
+  container.classList.add('idle');
+
+  // function to map cursor position to small pupil movement
+  function movePupils(clientX, clientY){
+    const rect = svg.getBoundingClientRect();
+    // normalize -1..1
+    const nx = ((clientX - rect.left) / rect.width) * 2 - 1;
+    const ny = ((clientY - rect.top) / rect.height) * 2 - 1;
+    // limit
+    const px = Math.max(-1, Math.min(1, nx));
+    const py = Math.max(-0.7, Math.min(0.7, ny));
+    // small translation range
+    const tx = px * 2.8; // px
+    const ty = py * 1.8; // px
+    leftPupil.style.transform = `translate(${tx}px, ${ty}px)`;
+    rightPupil.style.transform = `translate(${tx}px, ${ty}px)`;
+  }
+
+  // on mouse move over page, have eyes follow (but gently)
+  let followEnabled = true;
+  document.addEventListener('mousemove', (e)=>{
+    if(!followEnabled) return;
+    movePupils(e.clientX, e.clientY);
+  });
+
+  // on hover: raise eyebrows
+  container.addEventListener('mouseenter', ()=>{
+    container.classList.add('active');
+    // stop float while interacting
+    container.classList.remove('idle');
+  });
+  container.addEventListener('mouseleave', ()=>{
+    container.classList.remove('active');
+    container.classList.add('idle');
+    // return pupils to center
+    leftPupil.style.transform = `translate(0px,0px)`;
+    rightPupil.style.transform = `translate(0px,0px)`;
+  });
+
+  // on click: quick wink + eyebrow twitch + small mouth change
+  container.addEventListener('click', (e)=>{
+    // temporary disable follow for click animation
+    followEnabled = false;
+    container.classList.add('active');
+
+    // wink: scale one eye's white to simulate blink (animate via transform)
+    const blinkEye = Math.random() > 0.5 ? leftEye : rightEye;
+    const otherEye = blinkEye === leftEye ? rightEye : leftEye;
+
+    // perform wink using SVG scale on eye-white by JS
+    const eyeWhite = blinkEye.querySelector('.eye-white');
+    eyeWhite.animate([{ r: 7 }, { r: 0 }, { r: 7 }], { duration: 320, easing: 'ease-in-out' });
+    // eyebrow twitch
+    blinkEye.querySelector('.pupil').animate([{ transform: 'translateY(0px)' }, { transform: 'translateY(2px)' }, { transform: 'translateY(0px)'}], { duration: 300 });
+
+    // mouth change (simulate small open)
+    mouth.animate([{ strokeWidth: 3 }, { strokeWidth: 1 }, { strokeWidth: 3 }], { duration: 300 });
+
+    // short surprise eyebrow bump
+    leftBrow.animate([{ transform: 'translateY(0px) rotate(0deg)' }, { transform: 'translateY(-10px) rotate(-6deg)' }, { transform: 'translateY(0px) rotate(0deg)'}], { duration: 420 });
+    rightBrow.animate([{ transform: 'translateY(0px) rotate(0deg)' }, { transform: 'translateY(-10px) rotate(6deg)' }, { transform: 'translateY(0px) rotate(0deg)'}], { duration: 420 });
+
+    setTimeout(()=>{
+      followEnabled = true;
+    }, 520);
+  });
+
+  // occasional small autonomous eyebrow blink every 4-8s
+  setInterval(()=>{
+    if(container.matches(':hover')) return; // don't interrupt hover
+    // tiny eyebrow twitch
+    leftBrow.animate([{ transform: 'translateY(0px)' }, { transform: 'translateY(-6px)' }, { transform: 'translateY(0px)' }], { duration: 520, easing: 'ease-in-out' });
+    rightBrow.animate([{ transform: 'translateY(0px)' }, { transform: 'translateY(-6px)' }, { transform: 'translateY(0px)' }], { duration: 520, easing: 'ease-in-out' });
+  }, 4500 + Math.random()*3500);
+
+  // small initial look-around (aesthetic)
+  setTimeout(()=> {
+    const rx = 20 - Math.random()*40;
+    const ry = -6 + Math.random()*12;
+    leftPupil.style.transform = `translate(${rx*0.08}px, ${ry*0.08}px)`;
+    rightPupil.style.transform = `translate(${rx*0.08}px, ${ry*0.08}px)`;
+  }, 600);
+})();
+</script>
+
+        <div>
+          <h1>Karan Singh</h1>
+          <p class="lead">Video Editor • Motion Designer — Short films, ads, UGC</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#projects">View Work</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h2 style="margin:0 0 6px">Hi — main Karan</h2>
+        <p class="lead">Main short-form videos, ads aur client projects edit karta hoon. Neeche mere select projects dekhiye — har project par click karke video dekhiye.</p>
+
+        <div class="cta">
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn secondary" href="mailto:your-email@example.com">Contact</a>
+        </div>
+
+        <div style="margin-top:16px;">
+          <strong style="font-size:13px;color:var(--muted)">Tip:</strong>
+          <span style="font-size:13px;color:var(--muted)">Video lazy-load hota hai — click karke modal me play karein.</span>
+        </div>
+      </div>
+
+      <aside class="card" style="text-align:center">
+        <div style="font-size:14px;color:var(--muted)">Featured Reel</div>
+        <img id="featuredThumb" src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="reel" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-top:10px">
+        <div style="margin-top:12px">
+          <a class="btn" href="#" id="openFeatured" data-video="">Play Reel</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" style="margin-top:18px">
+      <h3 style="margin:0 0 12px">Projects</h3>
+      <div class="projects">
+        <!-- Project 1: VIMEO (this will play in modal on click) -->
+        <div class="proj" data-video="https://player.vimeo.com/video/1117083402?h=912cef0b78">
+          <img class="thumb" src="https://i.vimeocdn.com/video/1117083402_640x360.jpg" alt="Project 1">
+          <div class="meta">
+            <h3>Client Ad — Product X</h3>
+            <p>Role: Editor • Tools: Premiere Pro, After Effects</p>
+          </div>
+        </div>
+
+        <!-- Project 2: YouTube example (leave or replace) -->
+        <div class="proj" data-video="dQw4w9WgXcQ">
+          <img class="thumb" src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Project 2">
+          <div class="meta">
+            <h3>UGC Short — Travel</h3>
+            <p>Role: Editor, Color Grade</p>
+          </div>
+        </div>
+
+        <!-- Project 3: YouTube example -->
+        <div class="proj" data-video="VIDEO_ID_3">
+          <img class="thumb" src="https://img.youtube.com/vi/VIDEO_ID_3/hqdefault.jpg" alt="Project 3">
+          <div class="meta">
+            <h3>Music Video — Artist Y</h3>
+            <p>Role: Editor • Effects: Motion Graphics</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:22px" class="card about">
+      <div class="avatar">KS</div>
+      <div>
+        <h3 style="margin:0">About me</h3>
+        <p style="color:var(--muted);margin-top:6px">I'm Karan — I make fast-paced edits, ads and social content. I focus on clean cuts, strong pacing, and color grade that sells.</p>
+        <div style="margin-top:10px" class="contact">
+          <div style="color:var(--muted);font-size:13px">Email — <a href="mailto:your-email@example.com">your-email@example.com</a></div>
+          <div style="color:var(--muted);font-size:13px;margin-top:6px">Social — <a class="contact" href="https://instagram.com/yourprofile" target="_blank">Instagram</a> · <a class="contact" href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="color:var(--muted)">Made with ❤ • <span id="year"></span> • <a style="color:var(--accent)" href="https://github.com/karusingh2333-cyber">GitHub</a></div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="inner">
+      <div class="header">
+        <div id="modalTitle">Project Video</div>
+        <button class="close" id="closeBtn" aria-label="Close">✕</button>
+      </div>
+      <div id="playerWrap">
+        <!-- iframe injected here -->
       </div>
     </div>
-  </header>
+  </div>
 
-  <!-- Main Content -->
-  <main>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Explore my video editing projects and creative work.</p>
-  </main>
-
-  <!-- JS -->
   <script>
-  (function(){
-    const container = document.getElementById('interactiveEmoji');
-    const svg = container.querySelector('svg');
-    const leftPupil = container.querySelector('.left-eye .pupil');
-    const rightPupil = container.querySelector('.right-eye .pupil');
-    const leftEye = container.querySelector('.left-eye');
-    const rightEye = container.querySelector('.right-eye');
-    const leftBrow = container.querySelector('.left-brow');
-    const rightBrow = container.querySelector('.right-brow');
-    const mouth = container.querySelector('.mouth');
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    container.classList.add('idle');
+    // Open modal with Vimeo or YouTube
+    function openModal(videoRef, title){
+      const modal = document.getElementById('modal');
+      const wrap = document.getElementById('playerWrap');
+      document.getElementById('modalTitle').textContent = title || 'Project Video';
 
-    function movePupils(clientX, clientY){
-      const rect = svg.getBoundingClientRect();
-      const nx = ((clientX - rect.left) / rect.width) * 2 - 1;
-      const ny = ((clientY - rect.top) / rect.height) * 2 - 1;
-      const px = Math.max(-1, Math.min(1, nx));
-      const py = Math.max(-0.7, Math.min(0.7, ny));
-      const tx = px * 2.8; 
-      const ty = py * 1.8; 
-      leftPupil.style.transform = `translate(${tx}px, ${ty}px)`;
-      rightPupil.style.transform = `translate(${tx}px, ${ty}px)`;
+      let src = '';
+      if (/^https?:\/\//i.test(videoRef)) {
+        // full embed URL (Vimeo or YouTube embed) -> append autoplay & muted
+        src = videoRef + (videoRef.includes('?') ? '&' : '?') + 'autoplay=1&muted=1';
+      } else {
+        // assume YouTube ID
+        src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoRef) + '?autoplay=1&muted=1&rel=0';
+      }
+
+      // injection (use allow attributes for autoplay)
+      wrap.innerHTML = '<iframe src="' + src + '" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen style="width:100%;height:520px;border:0;"></iframe>';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
     }
 
-    let followEnabled = true;
-    document.addEventListener('mousemove', (e)=>{
-      if(!followEnabled) return;
-      movePupils(e.clientX, e.clientY);
+    function closeModal(){
+      const modal = document.getElementById('modal');
+      const wrap = document.getElementById('playerWrap');
+      wrap.innerHTML = '';
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    // Attach click handlers to project cards
+    document.querySelectorAll('.proj').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        const vid = el.dataset.video;
+        const title = el.querySelector('h3') ? el.querySelector('h3').innerText : 'Project Video';
+        if(!vid || vid.trim()==='') {
+          alert('Video URL/ID missing for this project. Edit index.html and add data-video.');
+          return;
+        }
+        openModal(vid,title);
+      });
     });
 
-    container.addEventListener('mouseenter', ()=>{
-      container.classList.add('active');
-      container.classList.remove('idle');
+    // Featured reel button (if set)
+    const featuredBtn = document.getElementById('openFeatured');
+    if(featuredBtn){
+      featuredBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        const vid = this.dataset.video;
+        if(!vid || vid.trim()===''){
+          alert('Replace featured video data-video value.');
+          return;
+        }
+        openModal(vid,'Featured Reel');
+      });
+    }
+
+    // modal close interactions
+    document.getElementById('closeBtn').addEventListener('click', closeModal);
+    document.getElementById('modal').addEventListener('click', function(e){
+      if(e.target === this) closeModal();
     });
-    container.addEventListener('mouseleave', ()=>{
-      container.classList.remove('active');
-      container.classList.add('idle');
-      leftPupil.style.transform = `translate(0px,0px)`;
-      rightPupil.style.transform = `translate(0px,0px)`;
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeModal();
     });
-
-    container.addEventListener('click', ()=>{
-      followEnabled = false;
-      container.classList.add('active');
-
-      const blinkEye = Math.random() > 0.5 ? leftEye : rightEye;
-      const eyeWhite = blinkEye.querySelector('.eye-white');
-      eyeWhite.animate([{ r: 7 }, { r: 0 }, { r: 7 }], { duration: 320, easing: 'ease-in-out' });
-
-      mouth.animate([{ strokeWidth: 3 }, { strokeWidth: 1 }, { strokeWidth: 3 }], { duration: 300 });
-
-      leftBrow.animate([{ transform: 'translateY(0px)' }, { transform: 'translateY(-10px)' }, { transform: 'translateY(0px)'}], { duration: 420 });
-      rightBrow.animate([{ transform: 'translateY(0px)' }, { transform: 'translateY(-10px)' }, { transform: 'translateY(0px)'}], { duration: 420 });
-
-      setTimeout(()=>{ followEnabled = true; }, 520);
-    });
-
-    setInterval(()=>{
-      if(container.matches(':hover')) return;
-      leftBrow.animate([{ transform: 'translateY(0px)' }, { transform: 'translateY(-6px)' }, { transform: 'translateY(0px)' }], { duration: 520 });
-      rightBrow.animate([{ transform: 'translateY(0px)' }, { transform: 'translateY(-6px)' }, { transform: 'translateY(0px)' }], { duration: 520 });
-    }, 5000);
-  })();
   </script>
 </body>
 </html>
