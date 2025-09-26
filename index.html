@@ -161,8 +161,8 @@
     // small translation range
     const tx = px * 2.8; // px
     const ty = py * 1.8; // px
-    leftPupil.style.transform = `translate(${tx}px, ${ty}px)`;
-    rightPupil.style.transform = `translate(${tx}px, ${ty}px)`;
+    leftPupil.style.transform = translate(${tx}px, ${ty}px);
+    rightPupil.style.transform = translate(${tx}px, ${ty}px);
   }
 
   // on mouse move over page, have eyes follow (but gently)
@@ -182,8 +182,8 @@
     container.classList.remove('active');
     container.classList.add('idle');
     // return pupils to center
-    leftPupil.style.transform = `translate(0px,0px)`;
-    rightPupil.style.transform = `translate(0px,0px)`;
+    leftPupil.style.transform = translate(0px,0px);
+    rightPupil.style.transform = translate(0px,0px);
   });
 
   // on click: quick wink + eyebrow twitch + small mouth change
@@ -226,8 +226,8 @@
   setTimeout(()=> {
     const rx = 20 - Math.random()*40;
     const ry = -6 + Math.random()*12;
-    leftPupil.style.transform = `translate(${rx*0.08}px, ${ry*0.08}px)`;
-    rightPupil.style.transform = `translate(${rx*0.08}px, ${ry*0.08}px)`;
+    leftPupil.style.transform = translate(${rx*0.08}px, ${ry*0.08}px);
+    rightPupil.style.transform = translate(${rx*0.08}px, ${ry*0.08}px);
   }, 600);
 })();
 </script>
@@ -255,11 +255,6 @@
   </div>
 </section>
 
-
-    <!-- Work Page Button -->
-    <a href="work.html" class="btn">See More Work →</a>
-  </div>
-</section>
 
         <div class="cta">
           <a class="btn" href="#projects">See Projects</a>
