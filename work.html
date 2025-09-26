@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Work – Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-theme">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">KS</div>
+    <nav>
+      <a href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>My Work</h1>
+    <p>Short-form Ads, Reels & Long-form Video Projects</p>
+  </section>
+
+  <!-- Short-form Section -->
+  <section class="projects">
+    <h2>Short Ads & Reels</h2>
+    <div class="grid">
+      <!-- Example reel 1 -->
+      <div class="proj" data-video="https://player.vimeo.com/video/1117090724?h=e4cbd17010">
+        <img class="thumb" src="thumbnails/reel-1.jpg" alt="UGC Ad Reel">
+        <div class="meta">
+          <h3>UGC Ad Reel — Travel</h3>
+          <p>Role: Editor • Color Grade</p>
+        </div>
+      </div>
+      <!-- Example reel 2 -->
+      <div class="proj" data-video="https://player.vimeo.com/video/1117083402?h=912cef0b78">
+        <img class="thumb" src="thumbnails/reel-2.jpg" alt="Product Ad">
+        <div class="meta">
+          <h3>Product Ad — Social Media</h3>
+          <p>Role: Editor • Motion Graphics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Long-form Section -->
+  <section class="projects">
+    <h2>Long-form Edits</h2>
+    <div class="grid">
+      <!-- Example long video -->
+      <div class="proj" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+        <img class="thumb" src="thumbnails/long-1.jpg" alt="YouTube Edit">
+        <div class="meta">
+          <h3>YouTube Edit — Travel Vlog</h3>
+          <p>Role: Full Edit • Color Grade</p>
+        </div>
+      </div>
+      <!-- Example long video -->
+      <div class="proj" data-video="https://www.youtube.com/embed/xyz123">
+        <img class="thumb" src="thumbnails/long-2.jpg" alt="Podcast Edit">
+        <div class="meta">
+          <h3>Podcast Highlight</h3>
+          <p>Role: Editor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <iframe id="videoFrame" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
