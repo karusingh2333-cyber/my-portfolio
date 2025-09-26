@@ -161,8 +161,9 @@
     // small translation range
     const tx = px * 2.8; // px
     const ty = py * 1.8; // px
-    leftPupil.style.transform = translate(${tx}px, ${ty}px);
-    rightPupil.style.transform = translate(${tx}px, ${ty}px);
+    leftPupil.style.transform = `translate(${tx}px, ${ty}px)`;
+    rightPupil.style.transform = `translate(${tx}px, ${ty}px)`;
+
   }
 
   // on mouse move over page, have eyes follow (but gently)
