@@ -183,8 +183,9 @@
     container.classList.remove('active');
     container.classList.add('idle');
     // return pupils to center
-    leftPupil.style.transform = translate(0px,0px);
-    rightPupil.style.transform = translate(0px,0px);
+    leftPupil.style.transform = `translate(0px, 0px)`;
+    rightPupil.style.transform = `translate(0px, 0px)`;
+
   });
 
   // on click: quick wink + eyebrow twitch + small mouth change
@@ -227,8 +228,9 @@
   setTimeout(()=> {
     const rx = 20 - Math.random()*40;
     const ry = -6 + Math.random()*12;
-    leftPupil.style.transform = translate(${rx*0.08}px, ${ry*0.08}px);
-    rightPupil.style.transform = translate(${rx*0.08}px, ${ry*0.08}px);
+    leftPupil.style.transform = `translate(${rx*0.08}px, ${ry*0.08}px)`;
+    rightPupil.style.transform = `translate(${rx*0.08}px, ${ry*0.08}px)`;
+
   }, 600);
 })();
 </script>
