@@ -1,82 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Work – Portfolio</title>
-  <link rel="stylesheet" href="/my-portfolio/dist/output.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Work - Portfolio</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <!-- Navbar -->
+    <header class="p-6 border-b border-gray-800 flex justify-between items-center">
+      <h1 class="text-xl font-bold">KS</h1>
+      <nav>
+        <a href="index.html" class="text-gray-400 hover:text-white">← Back to Home</a>
+      </nav>
+    </header>
 
-</head>
-<body class="dark-theme">
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+      <h2 class="text-4xl font-bold mb-2">My Work</h2>
+      <p class="text-gray-400 mb-10">
+        Short-form Ads, Reels & Long-form Video Projects
+      </p>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">KS</div>
-    <nav>
-      <a href="index.html">← Back to Home</a>
-    </nav>
-  </header>
+      <!-- Section: Short Ads -->
+      <h3 class="text-2xl font-semibold mb-6">🎬 Short Ads & Reels</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Card 1 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="thumbnails/ugc.jpg" alt="UGC Ad Reel" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h4 class="text-lg font-bold">UGC Ad Reel — Travel</h4>
+            <p class="text-gray-400 text-sm">Role: Editor • Color Grade</p>
+          </div>
+        </div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>My Work</h1>
-    <p>Short-form Ads, Reels & Long-form Video Projects</p>
-  </section>
-
-  <!-- Short-form Section -->
-  <section class="projects">
-    <h2>Short Ads & Reels</h2>
-    <div class="grid">
-      <!-- Example reel 1 -->
-      <div class="proj" data-video="https://player.vimeo.com/video/1117090724?h=e4cbd17010">
-        <img class="thumb" src="thumbnails/reel-1.jpg" alt="UGC Ad Reel">
-        <div class="meta">
-          <h3>UGC Ad Reel — Travel</h3>
-          <p>Role: Editor • Color Grade</p>
+        <!-- Card 2 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="thumbnails/product.jpg" alt="Product Ad" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h4 class="text-lg font-bold">Product Ad — Social Media</h4>
+            <p class="text-gray-400 text-sm">Role: Editor • Motion Graphics</p>
+          </div>
         </div>
       </div>
-      <!-- Example reel 2 -->
-      <div class="proj" data-video="https://player.vimeo.com/video/1117083402?h=912cef0b78">
-        <img class="thumb" src="thumbnails/reel-2.jpg" alt="Product Ad">
-        <div class="meta">
-          <h3>Product Ad — Social Media</h3>
-          <p>Role: Editor • Motion Graphics</p>
+
+      <!-- Section: Long Form -->
+      <h3 class="text-2xl font-semibold mb-6">📺 Long-form Edits</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 3 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="thumbnails/youtube.jpg" alt="YouTube Edit" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h4 class="text-lg font-bold">YouTube Edit — Travel Vlog</h4>
+            <p class="text-gray-400 text-sm">Role: Full Edit • Color Grade</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="thumbnails/podcast.jpg" alt="Podcast Highlight" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h4 class="text-lg font-bold">Podcast Highlight</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </main>
 
-  <!-- Long-form Section -->
-  <section class="projects">
-    <h2>Long-form Edits</h2>
-    <div class="grid">
-      <!-- Example long video -->
-      <div class="proj" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-        <img class="thumb" src="thumbnails/long-1.jpg" alt="YouTube Edit">
-        <div class="meta">
-          <h3>YouTube Edit — Travel Vlog</h3>
-          <p>Role: Full Edit • Color Grade</p>
-        </div>
-      </div>
-      <!-- Example long video -->
-      <div class="proj" data-video="https://www.youtube.com/embed/xyz123">
-        <img class="thumb" src="thumbnails/long-2.jpg" alt="Podcast Edit">
-        <div class="meta">
-          <h3>Podcast Highlight</h3>
-          <p>Role: Editor</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Modal -->
-  <div id="videoModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <iframe id="videoFrame" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-gray-500 text-sm py-6 border-t border-gray-800">
+      © 2025 Karan Singh. All rights reserved.
+    </footer>
+  </body>
 </html>
