@@ -9,16 +9,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-      /* Hover zoom effect only */
-      .card-hover {
-        transition: transform 250ms cubic-bezier(.2,.9,.2,1);
-      }
-      .card-hover:hover {
-        transform: translateY(-6px) scale(1.02);
-      }
-      .aspect-[9/16] { aspect-ratio: 9 / 16; }
-      .aspect-video { aspect-ratio: 16 / 9; }
-    </style>
+  /* Hover zoom effect only */
+  .card-hover {
+    transition: transform 250ms cubic-bezier(.2,.9,.2,1);
+  }
+  .card-hover:hover {
+    transform: translateY(-6px) scale(1.02);
+  }
+
+  .aspect-[9/16] { aspect-ratio: 9 / 16; }
+  .aspect-video { aspect-ratio: 16 / 9; }
+
+  /* 🔥 Fix for iframes inside reels */
+  iframe {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+  }
+</style>
+
   </head>
 
   <body class="bg-gray-900 text-white font-sans">
