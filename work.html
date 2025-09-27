@@ -3,149 +3,150 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Work</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <title>My Work - Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animate.css for entry animations -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <style>
-      /* Animation ko fast karne ke liye */
-      .animate__animated {
-        --animate-duration: 0.8s;
-      }
-    </style>
   </head>
   <body class="bg-gray-900 text-white font-sans">
-    <header class="p-6 text-center border-b border-gray-700">
-      <h1 class="text-4xl font-extrabold animate__animated animate__fadeInDown">
-        My Work
-      </h1>
-      <p
-        class="mt-2 text-gray-400 animate__animated animate__fadeIn animate__delay-1s"
-      >
-        Short-form Ads, Reels & Long-form Video Projects
-      </p>
+    <!-- Navbar -->
+    <header class="p-6 border-b border-gray-800 flex justify-between items-center">
+      <h1 class="text-xl font-bold">KS</h1>
+      <nav>
+        <a href="index.html" class="text-gray-400 hover:text-white">← Back to Home</a>
+      </nav>
     </header>
 
-    <main class="p-8 space-y-16">
-      <!-- Short Ads & Reels -->
-      <section>
-        <h2
-          class="text-2xl font-bold mb-6 animate__animated animate__fadeInUp"
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+      <!-- Title -->
+      <h2 class="text-4xl font-bold mb-2 animate__animated animate__fadeInDown">
+        My Work
+      </h2>
+      <p class="text-gray-400 mb-10 animate__animated animate__fadeIn animate__delay-1s">
+        Short-form Ads, Reels & Long-form Video Projects
+      </p>
+
+      <!-- Short Ads Section -->
+      <h3 class="text-2xl font-semibold mb-6">🎬 Short Ads & Reels</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
+        <!-- Reel Card (9:16) -->
+        <div
+          class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp"
         >
-          Short Ads & Reels
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <!-- Reel 1 -->
-          <div
-            class="animate__animated animate__fadeInUp animate__delay-1s bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-          >
-            <div class="aspect-[9/16] bg-black">
-              <iframe
-                src="https://player.vimeo.com/video/1117083402?h=912cef0b78"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                class="w-full h-full"
-              ></iframe>
-            </div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold">UGC Ad Reel — Travel</h3>
-              <p class="text-gray-400 text-sm">Role: Editor • Color Grade</p>
-            </div>
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel1.jpg" class="w-full h-full object-cover" alt="Reel 1" />
           </div>
-
-          <!-- Reel 2 -->
-          <div
-            class="animate__animated animate__fadeInUp animate__delay-2s bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-          >
-            <div class="aspect-[9/16] bg-black"></div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold">Product Ad — Social Media</h3>
-              <p class="text-gray-400 text-sm">Role: Editor • Motion Graphics</p>
-            </div>
-          </div>
-
-          <!-- Reel 3 -->
-          <div
-            class="animate__animated animate__fadeInUp animate__delay-3s bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-          >
-            <div class="aspect-[9/16] bg-black"></div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold">Food Brand Promo</h3>
-              <p class="text-gray-400 text-sm">Role: Editor</p>
-            </div>
-          </div>
-
-          <!-- Reel 4 -->
-          <div
-            class="animate__animated animate__fadeInUp animate__delay-4s bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-          >
-            <div class="aspect-[9/16] bg-black"></div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold">Event Highlight Reel</h3>
-              <p class="text-gray-400 text-sm">Role: Editor</p>
-            </div>
-          </div>
-
-          <!-- Reel 5 -->
-          <div
-            class="animate__animated animate__fadeInUp animate__delay-5s bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-          >
-            <div class="aspect-[9/16] bg-black"></div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold">Fashion Ad Reel</h3>
-              <p class="text-gray-400 text-sm">Role: Editor • Color Grade</p>
-            </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Travel Ad Reel</h4>
+            <p class="text-gray-400 text-sm">Role: Editor • Color Grade</p>
           </div>
         </div>
-      </section>
 
-      <!-- Long-form Edits -->
-      <section>
-        <h2
-          class="text-2xl font-bold mb-6 animate__animated animate__fadeInUp"
-        >
-          Long-form Edits
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Video 1 -->
-          <div
-            class="animate__animated animate__fadeInUp animate__delay-1s bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-          >
-            <div class="aspect-video bg-black">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                class="w-full h-full"
-              ></iframe>
-            </div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold">Travel Vlog Edit</h3>
-              <p class="text-gray-400 text-sm">Role: Full Edit • Color Grade</p>
-            </div>
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel2.jpg" class="w-full h-full object-cover" alt="Reel 2" />
           </div>
-
-          <!-- Video 2 -->
-          <div
-            class="animate__animated animate__fadeInUp animate__delay-2s bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-          >
-            <div class="aspect-video bg-black"></div>
-            <div class="p-4">
-              <h3 class="text-lg font-semibold">Podcast Highlight</h3>
-              <p class="text-gray-400 text-sm">Role: Editor</p>
-            </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Product Promo</h4>
+            <p class="text-gray-400 text-sm">Role: Motion Graphics</p>
           </div>
         </div>
-      </section>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel3.jpg" class="w-full h-full object-cover" alt="Reel 3" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Brand Collab Reel</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel4.jpg" class="w-full h-full object-cover" alt="Reel 4" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Fitness Ad Reel</h4>
+            <p class="text-gray-400 text-sm">Role: Colorist</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-4s">
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel5.jpg" class="w-full h-full object-cover" alt="Reel 5" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Music Video Clip</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Long-form Section -->
+      <h3 class="text-2xl font-semibold mb-6">📺 Long-form Edits</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <!-- Long-form Video Card (16:9) -->
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt1.jpg" class="w-full h-full object-cover" alt="YouTube Edit" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Travel Vlog</h4>
+            <p class="text-gray-400 text-sm">Role: Full Edit • Color Grade</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt2.jpg" class="w-full h-full object-cover" alt="YT Edit 2" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Podcast Highlight</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt3.jpg" class="w-full h-full object-cover" alt="YT Edit 3" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Event Recap</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt4.jpg" class="w-full h-full object-cover" alt="YT Edit 4" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Corporate Video</h4>
+            <p class="text-gray-400 text-sm">Role: Colorist</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-4s">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt5.jpg" class="w-full h-full object-cover" alt="YT Edit 5" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Documentary Edit</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <footer class="p-6 text-center border-t border-gray-700 text-gray-400">
-      © 2025 Karan Singh — Portfolio
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-gray-500 text-sm py-6 border-t border-gray-800">
+      © 2025 Karan Singh. All rights reserved.
     </footer>
   </body>
 </html>
