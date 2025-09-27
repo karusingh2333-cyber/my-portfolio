@@ -9,25 +9,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-  /* Hover zoom effect only */
-  .card-hover {
-    transition: transform 250ms cubic-bezier(.2,.9,.2,1);
-  }
-  .card-hover:hover {
-    transform: translateY(-6px) scale(1.02);
-  }
+      /* Hover zoom effect only */
+      .card-hover {
+        transition: transform 250ms cubic-bezier(.2,.9,.2,1);
+      }
+      .card-hover:hover {
+        transform: translateY(-6px) scale(1.02);
+      }
 
-  .aspect-[9/16] { aspect-ratio: 9 / 16; }
-  .aspect-video { aspect-ratio: 16 / 9; }
+      .aspect-[9/16] { aspect-ratio: 9 / 16; }
+      .aspect-video { aspect-ratio: 16 / 9; }
 
-  /* 🔥 Fix for iframes inside reels */
-  iframe {
-    width: 100% !important;
-    height: 100% !important;
-    display: block;
-  }
-</style>
-
+      /* 🔥 Fix for iframes inside reels */
+      iframe {
+        width: 100% !important;
+        height: 100% !important;
+        display: block;
+      }
+    </style>
   </head>
 
   <body class="bg-gray-900 text-white font-sans">
@@ -48,74 +47,76 @@
       <!-- Short Ads Section -->
       <h3 class="text-2xl font-semibold mb-6">🎬 Short Ads & Reels</h3>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
+        
+        <!-- Reel 1 -->
         <div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
           <div class="aspect-[9/16] bg-black">
-  <iframe 
-    src="https://player.vimeo.com/video/1122412809?h=8943f0e494" 
-    class="w-full h-full"
-    frameborder="0" 
-    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-    allowfullscreen>
-  </iframe>
-</div>
-
+            <iframe 
+              src="https://player.vimeo.com/video/1122412809?h=8943f0e494" 
+              class="w-full h-full block"
+              frameborder="0" 
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
           <div class="p-3">
             <h4 class="text-lg font-bold">Travel Ad Reel</h4>
             <p class="text-gray-400 text-sm">Role: Editor • Color Grade</p>
           </div>
         </div>
 
-        <div class="aspect-[9/16] bg-black">
-  <iframe 
-    src="https://player.vimeo.com/video/1122449104?h=4c5e53decc"
-    class="w-full h-full"
-    frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
-
-
+        <!-- Reel 2 -->
+        <div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+          <div class="aspect-[9/16] bg-black">
+            <iframe 
+              src="https://player.vimeo.com/video/1122449104?h=4c5e53decc"
+              class="w-full h-full block"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
           <div class="p-3">
             <h4 class="text-lg font-bold">Product Promo</h4>
             <p class="text-gray-400 text-sm">Role: Motion Graphics</p>
           </div>
         </div>
 
-        <div class="aspect-[9/16] bg-black">
-  <iframe 
-    src="https://player.vimeo.com/video/1122450359?h=579c4aa169"
-    class="w-full h-full block"
-    frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
-
-
+        <!-- Reel 3 -->
+        <div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+          <div class="aspect-[9/16] bg-black">
+            <iframe 
+              src="https://player.vimeo.com/video/1122450359?h=579c4aa169"
+              class="w-full h-full block"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
           <div class="p-3">
             <h4 class="text-lg font-bold">Brand Collab Reel</h4>
             <p class="text-gray-400 text-sm">Role: Editor</p>
           </div>
         </div>
 
+        <!-- Reel 4 -->
         <div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
           <div class="aspect-[9/16] bg-black">
-  <iframe 
-    src="https://player.vimeo.com/video/1122450660?h=c84c6d6a7a"
-    class="w-full h-full block"
-    frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
-
+            <iframe 
+              src="https://player.vimeo.com/video/1122450660?h=c84c6d6a7a"
+              class="w-full h-full block"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
           <div class="p-3">
             <h4 class="text-lg font-bold">Fitness Ad Reel</h4>
             <p class="text-gray-400 text-sm">Role: Colorist</p>
           </div>
         </div>
 
+        <!-- Reel 5 -->
         <div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
           <div class="aspect-[9/16] bg-black">
             <img src="thumbnails/reel5.jpg" class="w-full h-full object-cover" alt="Reel 5" />
