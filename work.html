@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Work - Portfolio</title>
-    <!-- Tailwind CSS via CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animate.css for entry animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body class="bg-gray-900 text-white font-sans">
     <!-- Navbar -->
@@ -18,50 +23,121 @@
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-6 py-12">
-      <h2 class="text-4xl font-bold mb-2">My Work</h2>
-      <p class="text-gray-400 mb-10">
+      <!-- Title -->
+      <h2 class="text-4xl font-bold mb-2 animate__animated animate__fadeInDown">
+        My Work
+      </h2>
+      <p class="text-gray-400 mb-10 animate__animated animate__fadeIn animate__delay-1s">
         Short-form Ads, Reels & Long-form Video Projects
       </p>
 
-      <!-- Section: Short Ads -->
+      <!-- Short Ads Section -->
       <h3 class="text-2xl font-semibold mb-6">🎬 Short Ads & Reels</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        <!-- Card 1 -->
-        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src="thumbnails/ugc.jpg" alt="UGC Ad Reel" class="w-full h-48 object-cover" />
-          <div class="p-4">
-            <h4 class="text-lg font-bold">UGC Ad Reel — Travel</h4>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
+        <!-- Reel Card (9:16) -->
+        <div
+          class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp"
+        >
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel1.jpg" class="w-full h-full object-cover" alt="Reel 1" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Travel Ad Reel</h4>
             <p class="text-gray-400 text-sm">Role: Editor • Color Grade</p>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src="thumbnails/product.jpg" alt="Product Ad" class="w-full h-48 object-cover" />
-          <div class="p-4">
-            <h4 class="text-lg font-bold">Product Ad — Social Media</h4>
-            <p class="text-gray-400 text-sm">Role: Editor • Motion Graphics</p>
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel2.jpg" class="w-full h-full object-cover" alt="Reel 2" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Product Promo</h4>
+            <p class="text-gray-400 text-sm">Role: Motion Graphics</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel3.jpg" class="w-full h-full object-cover" alt="Reel 3" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Brand Collab Reel</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel4.jpg" class="w-full h-full object-cover" alt="Reel 4" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Fitness Ad Reel</h4>
+            <p class="text-gray-400 text-sm">Role: Colorist</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-4s">
+          <div class="aspect-[9/16] bg-black">
+            <img src="thumbnails/reel5.jpg" class="w-full h-full object-cover" alt="Reel 5" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Music Video Clip</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
           </div>
         </div>
       </div>
 
-      <!-- Section: Long Form -->
+      <!-- Long-form Section -->
       <h3 class="text-2xl font-semibold mb-6">📺 Long-form Edits</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Card 3 -->
-        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src="thumbnails/youtube.jpg" alt="YouTube Edit" class="w-full h-48 object-cover" />
-          <div class="p-4">
-            <h4 class="text-lg font-bold">YouTube Edit — Travel Vlog</h4>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <!-- Long-form Video Card (16:9) -->
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt1.jpg" class="w-full h-full object-cover" alt="YouTube Edit" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Travel Vlog</h4>
             <p class="text-gray-400 text-sm">Role: Full Edit • Color Grade</p>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src="thumbnails/podcast.jpg" alt="Podcast Highlight" class="w-full h-48 object-cover" />
-          <div class="p-4">
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-1s">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt2.jpg" class="w-full h-full object-cover" alt="YT Edit 2" />
+          </div>
+          <div class="p-3">
             <h4 class="text-lg font-bold">Podcast Highlight</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt3.jpg" class="w-full h-full object-cover" alt="YT Edit 3" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Event Recap</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt4.jpg" class="w-full h-full object-cover" alt="YT Edit 4" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Corporate Video</h4>
+            <p class="text-gray-400 text-sm">Role: Colorist</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition animate__animated animate__fadeInUp animate__delay-4s">
+          <div class="aspect-video bg-black">
+            <img src="thumbnails/yt5.jpg" class="w-full h-full object-cover" alt="YT Edit 5" />
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Documentary Edit</h4>
             <p class="text-gray-400 text-sm">Role: Editor</p>
           </div>
         </div>
