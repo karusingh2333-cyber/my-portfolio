@@ -20,7 +20,7 @@
       .aspect-[9/16] { aspect-ratio: 9 / 16; }
       .aspect-video { aspect-ratio: 16 / 9; }
 
-      /* 🔥 Fix for iframes inside reels */
+      /* Fix for iframes inside reels */
       iframe {
         width: 100% !important;
         height: 100% !important;
@@ -46,8 +46,10 @@
 
       <!-- Short Ads Section -->
       <h3 class="text-2xl font-semibold mb-6">🎬 Short Ads & Reels</h3>
+
+      <!-- <-- START short-grid -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
-        
+
         <!-- Reel 1 -->
         <div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
           <div class="aspect-[9/16] bg-black">
@@ -117,29 +119,38 @@
         </div>
 
         <!-- Reel 5 -->
-<div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-  <div class="aspect-[9/16] bg-black">
-    <iframe 
-      src="https://player.vimeo.com/video/1122459612?h=8b516efe67"
-      class="w-full h-full block"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <div class="p-3">
-    <h4 class="text-lg font-bold">Music Video Clip</h4>
-    <p class="text-gray-400 text-sm">Role: Editor</p>
-  </div>
-</div>
+        <div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+          <div class="aspect-[9/16] bg-black">
+            <iframe 
+              src="https://player.vimeo.com/video/1122459612?h=8b516efe67"
+              class="w-full h-full block"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-3">
+            <h4 class="text-lg font-bold">Music Video Clip</h4>
+            <p class="text-gray-400 text-sm">Role: Editor</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- --> END short-grid
 
       <!-- Long-form Section -->
       <h3 class="text-2xl font-semibold mb-6">📺 Long-form Edits</h3>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         <div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-          <div class="aspect-video bg-black">
-            <img src="thumbnails/yt1.jpg" class="w-full h-full object-cover" alt="YouTube Edit" />
-          </div>
+          <div class="relative aspect-video bg-black">
+  <iframe 
+    src="https://player.vimeo.com/video/1117083402?h=912cef0b78"
+    class="absolute inset-0 w-full h-full"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
           <div class="p-3">
             <h4 class="text-lg font-bold">Travel Vlog</h4>
             <p class="text-gray-400 text-sm">Role: Full Edit • Color Grade</p>
